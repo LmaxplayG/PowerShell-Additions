@@ -2,7 +2,7 @@
 
 . (Join-Path $PsScriptRoot "Scripts/index.ps1")
 
-Set-Variable -Name "PowerShellAdditionsVersion" -Value (New-Object -TypeName Version -ArgumentList @(1, 6, 0)) -Option Constant -Scope global
+Set-Variable -Name "PowerShellAdditionsVersion" -Value (New-Object -TypeName Version -ArgumentList @(1, 6, 1)) -Option Constant -Scope global
 Set-Variable -Name "PowerShellAdditionsPowerShellSupportedVersion" -Value (New-Object -TypeName Version -ArgumentList @(7, 2)) -Option Constant -Scope global
 #Set-Variable -Name "PowerShellAdditionsCodename" -Value "" -Option Constant -Scope global
 
@@ -18,8 +18,6 @@ try {
 if ((Test-Path (Join-Path $PsScriptRoot "preload.ps1"))) {
     . (Join-Path $PsScriptRoot "preload.ps1");
 }
-
-$PWSHADDisplayMessage = $true;
 
 # $Host.UI.RawUI.windowTitle = ("PowerShell " + ($PSVersionTable.PSVersion.Major.ToString() + "." + $PSVersionTable.PSVersion.Minor.ToString() + "." + $PSVersionTable.PSVersion.Patch.ToString()))
 
@@ -70,24 +68,7 @@ Write-Host -NoNewline "`n"
 function prompt {
 
     try {
-
-    if([Environment]::UserInteractive -and (Get-Variable PWSHADDisplayMessage -Scope global -ErrorAction SilentlyContinue)) {
-        if($PWSHADDisplayMessage) {
-            PowerShellAdditionsWatermark
-        }
-        Remove-Variable PWSHADDisplayMessage -Force -Scope global
-        
-        # Delete the function PowerShell-Additions-Watermark
-        Remove-Item -Path function:\PowerShellAdditionsWatermark -Force
-
-        #Remove-Item -Path function:\__wr__ -Force -Scope global
-    }
-    } catch {
-        Write-Host -NoNewline ""
-    }
-
-    try {
-        return Invoke-Expression $THEME
+        return & $THEME
     } catch {
         Write-Host -NoNewline "`nTheme failed to load" -ForegroundColor Red
         return "> ";
