@@ -11,7 +11,7 @@
 ## Q & A
 
 Q: Why should I use this  
-A: It allows theming and is made in 100% PowerShell, so no slowdown?
+A: It allows theming and is made in 100% PowerShell, (this makes it speedy)
 
 Q: Does it work on linux?  
 A: No, it doesn't (at least for ubuntu)
@@ -44,4 +44,7 @@ Q: How do I report bugs?
 A: The way you report bugs on GitHub repo's (issues tab)
 
 Q: How do I remove?
-A: Delete `<userfolder>/Documents/PowerShell`
+A: Delete `<userfolder>/Documents/PowerShell` (Won't break anything)
+
+Q: How do I make the watermark go away?
+A: Append `Remove-Variable "PWSHADDisplayMessage" -Force -Scope global` to C:\Users\UserName\Documents\PowerShell\postload.ps1 (create if needed)

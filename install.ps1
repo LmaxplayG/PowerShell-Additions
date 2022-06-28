@@ -1,4 +1,8 @@
 try {
+if($PSVersionTable.PSVersion.Major -le 5) {
+    Write-Host -NoNewline "PowerShell 5 and below are not supported" -ForegroundColor Red
+}
+
 if($IsWindows) {
     New-Item -ItemType Directory "C:\Users\Lmaxplay\Documents\PowerShell\" -Force -ErrorAction SilentlyContinue > $null
     Copy-Item -Path "./profile.ps1" -Destination ($env:UserProfile + "\Documents\PowerShell\Microsoft.Powershell_profile.ps1")
