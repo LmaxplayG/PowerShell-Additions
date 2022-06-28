@@ -4,7 +4,7 @@
 
 100% vanilla compatible!
 
-![In action](./Images/Preview153.png)
+![In action](./Images/Preview160.png)
 
 ![Using theme LINEBOSS](./Images/ThemePreview.png)
 
