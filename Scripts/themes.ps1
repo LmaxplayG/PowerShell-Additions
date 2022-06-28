@@ -813,7 +813,7 @@ function THEME_LINEBOSS {
     # 
 
     $UserName = [System.Environment]::UserName
-    $MachineName = [System.Environment]::MachineName
+    #$MachineName = [System.Environment]::MachineName
 
     $Path = $pwd.ToString()
 
@@ -899,7 +899,7 @@ function THEME_LINEBOSS_ICONS {
     # 
 
     $UserName = [System.Environment]::UserName
-    $MachineName = [System.Environment]::MachineName
+    #$MachineName = [System.Environment]::MachineName
 
     $Path = $pwd.ToString()
 
