@@ -2,7 +2,7 @@
 
 . (Join-Path $PsScriptRoot "Scripts/index.ps1")
 
-Set-Variable -Name "PowerShellAdditionsVersion" -Value (New-Object -TypeName Version -ArgumentList @(1, 5, 3)) -Option Constant -Scope global
+Set-Variable -Name "PowerShellAdditionsVersion" -Value (New-Object -TypeName Version -ArgumentList @(1, 6, 0)) -Option Constant -Scope global
 Set-Variable -Name "PowerShellAdditionsPowerShellSupportedVersion" -Value (New-Object -TypeName Version -ArgumentList @(7, 2)) -Option Constant -Scope global
 #Set-Variable -Name "PowerShellAdditionsCodename" -Value "" -Option Constant -Scope global
 
