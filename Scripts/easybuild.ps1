@@ -7,12 +7,12 @@ Builds the current project (using Make or a build.ps1 file)
 System.Null
 #>
 function Build-Project () {
-    if ( Get-Item -Path "./build.ps1" -Force -ErrorAction SilentlyContinue ) {
+    if ( Test-Path -Path "./build.ps1" -ErrorAction SilentlyContinue ) {
         ./build.ps1
         return
-    } elseif ( Get-Item -Path "./*.csproj" ) {
+    } elseif ( Test-Path -Path "./*.csproj" -ErrorAction SilentlyContinue ) {
         dotnet build
-    } elseif ( Get-Item -Path "./makefile" -Force -ErrorAction SilentlyContinue ) {
+    } elseif ( Test-Path -Path "./makefile" -ErrorAction SilentlyContinue ) {
         make
         return
     } else {
