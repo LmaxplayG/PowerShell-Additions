@@ -1,0 +1,1 @@
+nodemon -e "ps1" -x 'pwsh -Command "./install.ps1"'
