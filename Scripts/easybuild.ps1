@@ -11,6 +11,8 @@ function Build-Project () {
         ./build.ps1
     } elseif ( Test-Path -Path "./makefile" -ErrorAction SilentlyContinue ) {
         make
+    } elseif ( Test-Path -Path "./gradlew" -ErrorAction SilentlyContinue ) {
+        gradlew build
     } elseif ( Test-Path -Path "./*.csproj" -ErrorAction SilentlyContinue ) {
         dotnet build
     } else {
