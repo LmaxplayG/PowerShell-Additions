@@ -11,17 +11,17 @@ function Build-Project () {
     {
         ./build.ps1
     }
-    elseif ( Test-Path -Path "./makefile" -ErrorAction SilentlyContinue ) {
+    elseif ( Test-Path -Path "./makefile" -ErrorAction SilentlyContinue )
+    {
         if (Get-Command "make" -ErrorAction SilentlyContinue) {
         make
         } else {
             Write-Output -NoNewline -ForegroundColor: "Red" "MVN wasn't found on path"
         }
     }
-    elseif ( Test-Path -Path "./gradlew" -ErrorAction SilentlyContinue ) {
-
+    elseif ( Test-Path -Path "./gradlew" -ErrorAction SilentlyContinue )
+    {
         gradlew build
-
     }
     elseif ( Test-Path -Path "./pom.xml" -ErrorAction SilentlyContinue )
     {
