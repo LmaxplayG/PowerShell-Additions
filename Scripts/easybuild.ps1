@@ -13,6 +13,8 @@ function Build-Project () {
         make
     } elseif ( Test-Path -Path "./gradlew" -ErrorAction SilentlyContinue ) {
         gradlew build
+    } elseif ( Test-Path -Path "./pom.xml" -ErrorAction SilentlyContinue ) {
+        mvn "clean"
     } elseif ( Test-Path -Path "./*.csproj" -ErrorAction SilentlyContinue ) {
         dotnet build
     } else {
