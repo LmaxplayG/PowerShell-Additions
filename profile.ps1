@@ -2,7 +2,7 @@
 
 . (Join-Path $PsScriptRoot "Scripts/index.ps1")
 
-Set-Variable -Name "PowerShellAdditionsVersion" -Value (New-Object -TypeName Version -ArgumentList @(1, 6, 1)) -Option Constant -Scope global
+Set-Variable -Name "PowerShellAdditionsVersion" -Value (New-Object -TypeName Version -ArgumentList @(1, 7, 0)) -Option Constant -Scope global
 Set-Variable -Name "PowerShellAdditionsPowerShellSupportedVersion" -Value (New-Object -TypeName Version -ArgumentList @(7, 2)) -Option Constant -Scope global
 #Set-Variable -Name "PowerShellAdditionsCodename" -Value "" -Option Constant -Scope global
 
@@ -95,4 +95,9 @@ function Update-PowerShellAdditions {
 
 if ((Test-Path (Join-Path $PsScriptRoot "postload.ps1"))) {
     . (Join-Path $PsScriptRoot "postload.ps1");
+}
+
+Import-Module PSReadLine
+
+Set-PSReadLineKeyHandler -Chord Ctrl+e -ScriptBlock {
 }

@@ -11,6 +11,14 @@ function Build-Project () {
     {
         ./build.ps1
     }
+    elseif ( Test-Path -Path "./tsconfig.json" -ErrorAction SilentlyContinue )
+    {
+        if (Get-Command "tsc" -ErrorAction SilentlyContinue) {
+        tsc "./tsconfig.json"
+        } else {
+            Write-Output -NoNewline -ForegroundColor: "Red" "TSC wasn't found on path"
+        }
+    }
     elseif ( Test-Path -Path "./makefile" -ErrorAction SilentlyContinue )
     {
         if (Get-Command "make" -ErrorAction SilentlyContinue) {
